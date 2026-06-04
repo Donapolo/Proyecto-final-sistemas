@@ -86,8 +86,7 @@ git clone https://github.com/Donapolo/Proyecto-final-sistemas
 |   `-- snes/
 |-- scripts/
 |   `-- start_pickaxestation.sh
-
----
+```
 
 # Configuración del proyecto
 
@@ -116,7 +115,6 @@ python3 menu.py
 
 El proyecto fue diseñado para iniciar automáticamente al arrancar la Raspberry Pi mediante scripts de inicio configurados en el sistema operativo.
 
----
 
 # Documentación del código
 
@@ -124,7 +122,6 @@ Los archivos fuente fueron documentados mediante comentarios explicativos dentro
 
 Asimismo, se incluyen referencias al autor y licencias correspondientes de los recursos utilizados durante el desarrollo.
 
----
 
 # Aporte realizado
 <h1>
