@@ -132,11 +132,11 @@ Asimismo, se incluyen referencias al autor y licencias correspondientes de los r
 
 Como parte del desarrollo del proyecto, **participé principalmente en la preparación y configuración del entorno de trabajo** sobre Raspberry Pi OS Lite, así como en la integración y corrección de distintos componentes del sistema.
 
-# Configuración del Entorno y Sistema Operativo
+### Configuración del Entorno y Sistema Operativo
 
 Realicé la instalación y configuración inicial del sistema operativo, **preparando una imagen funcional de Raspberry Pi OS Lite** para ejecutar el proyecto sin entorno gráfico de escritorio. Asimismo, configuré los servicios, dependencias y herramientas necesarias para la ejecución de scripts en Python y el correcto funcionamiento de los emuladores.
 
-# Automatización y Optimización del Arranque
+### Automatización y Optimización del Arranque
 
 Durante el desarrollo, **trabajé en la automatización del arranque de la consola**, configurando scripts de inicio y corrigiendo problemas relacionados con la ejecución automática del menú principal al encender la Raspberry Pi. De igual forma, realicé modificaciones al sistema para ocultar los mensajes de la consola y mejorar la apariencia visual durante el proceso de *boot*.
 
@@ -151,7 +151,7 @@ Me encargué de la detección y solución de diversos errores técnicos presenta
 * **Rutas:** Errores relacionados con rutas de archivos y la carga de ROMs.
 * **Flujo del Sistema:** Problemas de reinicio automático del menú tras cerrar las aplicaciones.
 
-# Pruebas de Integración y Estructuración
+### Pruebas de Integración y Estructuración
 
 Además, **realicé pruebas de integración** entre Python, Pygame, los emuladores y el sistema operativo, verificando el correcto funcionamiento de los videos de introducción, sonidos, la navegación mediante el *gamepad* y la ejecución de los juegos.
 
@@ -178,3 +178,30 @@ Implementó un monitor de eventos que lee directamente desde /dev/input/js0. Tam
 # Gestión inteligente de biblioteca
 
 Desarrolló la lógica de sincronización encargada de detectar y copiar únicamente ROMs nuevas (.sfc y .smc). El sistema vincula automáticamente las portadas .png por coincidencia de nombre y asigna una imagen predeterminada (Default.png) cuando el juego no cuenta con arte propio.
+
+<h1>
+almodóvar Tufiño Sergio I.
+</h1>
+---
+
+### Sincronización de Medios Extraíbles y Gestión Dinámica de ROMs
+
+Como parte fundamental del ciclo de vida y la usabilidad de la consola, me encargué del diseño, desarrollo e implementación del módulo de detección automática de almacenamiento externo y el algoritmo de indexación de videojuegos (ROMs). Este componente asegura la expansión inteligente de la biblioteca local cumpliendo estrictamente con la restricción de no utilizar entornos de escritorio ni gestores de archivos comerciales.
+
+## Mecanismo de Detección Dinámica de USB (Módulo Centinela)
+Para detectar la inserción de medios extraíbles en tiempo real sin un demonio gráfico (como el de X11/Wayland), se implementó un script monitor en Python que interactúa directamente con el sistema de archivos de Linux:
+* **Escaneo de Bloques:** El sistema ejecuta periódicamente llamadas al sistema mediante el comando `lsblk --json` para analizar los dispositivos de almacenamiento conectados a los puertos de la Raspberry Pi 4.
+* **Filtrado Inteligente:** A través del parseo de la estructura JSON devuelta, el algoritmo filtra y diferencia la tarjeta MicroSD principal de cualquier partición de disco montada en caliente (usualmente bajo el tipo `part` y con puntos de montaje dinámicos). Esto permite reconocer cualquier memoria USB sin importar el puerto físico utilizado.
+
+## Flujo de Sincronización de ROMs y Evitación de Duplicados
+Una vez que el módulo detecta una memoria USB válida, la consola ejecuta de manera automatizada el siguiente flujo lógico:
+
+1. **Pausa de la Interfaz:** El sistema pausa momentáneamente la navegación o animaciones de la interfaz gráfica de Pygame para priorizar el uso de CPU e hilos de lectura/escritura en el almacenamiento.
+2. **Escaneo de Directorios Externos:** Se realiza una búsqueda recursiva dentro del dispositivo USB buscando carpetas específicas asignadas a cada plataforma (`/nes/`, `/snes/`, `/gba/`).
+3. **Validación de Extensiones:** El script valida los archivos encontrados comparando sus extensiones con los formatos compatibles por los emuladores nativos (por ejemplo, `.nes`, `.smc`, `.sfc`, `.gba`).
+4. **Filtro Anti-Duplicados:** Mediante la librería `os.path` de Python, el sistema verifica si el archivo ya existe en la ruta de almacenamiento local de la Raspberry Pi (`Proyecto-final-sistemas/roms/[consola]/`). Si el archivo ya existe, es ignorado de forma inteligente; si es nuevo, se copia localmente utilizando bloques de transferencia seguros.
+
+## Indexación Automatizada y Vinculación Multimedia
+Tras concluir la transferencia de archivos, el sistema refresca la base de datos interna y actualiza la galería visual en pantalla:
+* **Reconstrucción de Listas:** Se vuelven a leer los directorios locales para generar un vector dinámico de juegos disponibles, lo que permite al usuario ver los nuevos títulos inmediatamente en el menú sin necesidad de reiniciar la consola.
+* **Mapeo de Carátulas (Artwork):** El algoritmo busca en la carpeta `/media/` una imagen `.png` que coincida exactamente con el nombre de la ROM recién copiada. Si el juego cuenta con su arte gráfico, lo escala automáticamente; en caso contrario, el sistema le asigna dinámicamente el recurso `Default.png` para mantener la homogeneidad visual de la interfaz.
