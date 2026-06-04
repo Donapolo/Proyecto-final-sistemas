@@ -180,7 +180,7 @@ Implementó un monitor de eventos que lee directamente desde /dev/input/js0. Tam
 Desarrolló la lógica de sincronización encargada de detectar y copiar únicamente ROMs nuevas (.sfc y .smc). El sistema vincula automáticamente las portadas .png por coincidencia de nombre y asigna una imagen predeterminada (Default.png) cuando el juego no cuenta con arte propio.
 
 <h1>
-almodóvar Tufiño Sergio I.
+Almodóvar Tufiño Sergio I.
 </h1>
 ---
 
