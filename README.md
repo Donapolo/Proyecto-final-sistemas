@@ -22,7 +22,7 @@ Durante el desarrollo se configuraron distintos componentes del sistema operativ
 
 La interfaz fue diseñada para ofrecer una experiencia similar a una consola comercial retro, manteniendo una navegación simple, visual y completamente operable mediante gamepad.
 
----
+
 
 # Requisitos del sistema
 
@@ -45,7 +45,6 @@ La interfaz fue diseñada para ofrecer una experiencia similar a una consola com
 * Git
 * Librerías de audio y video necesarias para el sistema
 
----
 
 # Repositorio y código fuente
 
@@ -67,18 +66,10 @@ El repositorio puede descargarse utilizando Git mediante el siguiente comando:
 git clone https://github.com/Donapolo/Proyecto-final-sistemas
 ```
 
-Posteriormente se debe ingresar a la carpeta del proyecto:
-
-```bash id="1u9rr1"
-cd Proyecto-final-sistemas
-```
-
----
 
 # Estructura del proyecto
 
 ```text id="7fw5rj"
-Proyecto-final-sistemas/
 |-- boot/
 |   `-- intro.mp4
 |-- menu/
