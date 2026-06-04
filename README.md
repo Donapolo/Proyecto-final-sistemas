@@ -1,4 +1,4 @@
-<img width="490" height="420" alt="image" src="https://github.com/user-attachments/assets/c9692adb-9403-4295-9ce0-d321d3fde567" /># PickaxeStation
+# PickaxeStation
 
 ## Descripción general del proyecto
 
