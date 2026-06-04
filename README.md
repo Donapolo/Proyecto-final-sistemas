@@ -132,15 +132,15 @@ Asimismo, se incluyen referencias al autor y licencias correspondientes de los r
 
 Como parte del desarrollo del proyecto, **participé principalmente en la preparación y configuración del entorno de trabajo** sobre Raspberry Pi OS Lite, así como en la integración y corrección de distintos componentes del sistema.
 
-### Configuración del Entorno y Sistema Operativo
+# Configuración del Entorno y Sistema Operativo
 
 Realicé la instalación y configuración inicial del sistema operativo, **preparando una imagen funcional de Raspberry Pi OS Lite** para ejecutar el proyecto sin entorno gráfico de escritorio. Asimismo, configuré los servicios, dependencias y herramientas necesarias para la ejecución de scripts en Python y el correcto funcionamiento de los emuladores.
 
-### Automatización y Optimización del Arranque
+# Automatización y Optimización del Arranque
 
 Durante el desarrollo, **trabajé en la automatización del arranque de la consola**, configurando scripts de inicio y corrigiendo problemas relacionados con la ejecución automática del menú principal al encender la Raspberry Pi. De igual forma, realicé modificaciones al sistema para ocultar los mensajes de la consola y mejorar la apariencia visual durante el proceso de *boot*.
 
-### Resolución de Problemas Técnicos
+#Resolución de Problemas Técnicos
 
 Me encargué de la detección y solución de diversos errores técnicos presentados durante la implementación, entre los cuales destacan:
 
@@ -151,7 +151,7 @@ Me encargué de la detección y solución de diversos errores técnicos presenta
 * **Rutas:** Errores relacionados con rutas de archivos y la carga de ROMs.
 * **Flujo del Sistema:** Problemas de reinicio automático del menú tras cerrar las aplicaciones.
 
-### Pruebas de Integración y Estructuración
+# Pruebas de Integración y Estructuración
 
 Además, **realicé pruebas de integración** entre Python, Pygame, los emuladores y el sistema operativo, verificando el correcto funcionamiento de los videos de introducción, sonidos, la navegación mediante el *gamepad* y la ejecución de los juegos.
 
@@ -164,18 +164,18 @@ Reyes Roque Andrik Uriel
 
 Programó la interfaz desde cero en Python 3 utilizando Pygame. Logró que opere directamente sobre el búfer de fotogramas físico mediante DRM/KMS, permitiendo un alto rendimiento y fluidez de 60 FPS sin necesidad de un entorno de escritorio como X11 o Wayland.
 
-###Diseño visual avanzado
+#Diseño visual avanzado
 
 Implementó una estética neón con paneles semitransparentes mediante técnicas de Alpha Blending. Además, desarrolló un sistema de renderizado de fuentes con sombreado dinámico para mejorar la legibilidad y un algoritmo de escalado automático de carátulas.
 
-###Sincronización USB (Centinela)
+#Sincronización USB (Centinela)
 
 Diseñó un algoritmo que detecta memorias USB en tiempo real. Utilizó el comando lsblk y estructuras JSON para identificar dispositivos de almacenamiento dinámicamente, permitiendo reconocer memorias USB sin importar el puerto físico utilizado.
 
-###Control de hardware a bajo nivel
+#Control de hardware a bajo nivel
 
 Implementó un monitor de eventos que lee directamente desde /dev/input/js0. También programó la combinación Share + Options para interceptar señales del control PS4/PS5, forzar el cierre del emulador Mednafen y regresar al menú principal de manera segura.
 
-###Gestión inteligente de biblioteca
+#Gestión inteligente de biblioteca
 
 Desarrolló la lógica de sincronización encargada de detectar y copiar únicamente ROMs nuevas (.sfc y .smc). El sistema vincula automáticamente las portadas .png por coincidencia de nombre y asigna una imagen predeterminada (Default.png) cuando el juego no cuenta con arte propio.
