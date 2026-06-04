@@ -15,7 +15,6 @@ from datetime import datetime
 # ============================================================
 # PickaxeStation - Menu principal
 # Raspberry Pi OS Lite + Pygame + Mednafen
-# Sin escritorio, sin RetroPie, sin RetroArch, sin EmulationStation.
 # ============================================================
 
 pygame.init()
