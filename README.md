@@ -171,8 +171,23 @@ Finalmente, trabajé en la **organización de las carpetas del proyecto**, la es
 <h1>
 Reyes Roque Andrik Uriel
 </h1>
-Interfaz Gráfica Propietaria: Programé la interfaz desde cero en Python 3 utilizando Pygame. Logré que opere directamente sobre el búfer de fotogramas físico mediante **DRM/KMS**, lo que permite un alto rendimiento y fluidez sin necesidad de un entorno de escritorio.
-Diseño Visual Avanzado: Implementé una estética neón con paneles semitransparentes en un sistema de renderizado de fuentes con sombreado dinámico para mejorar la legibilidad y un algoritmo de escalado automático de carátulas.
-Sincronización USB : Diseñé un algoritmo que detecta memorias USB en tiempo real. Utilizo el comando `lsblk` y parseo estructuras **JSON** para identificar dispositivos de almacenamiento de forma dinámica, asegurando que el sistema reconozca la memoria sin importar en qué puerto físico se conecte.
-Control de Hardware a Bajo Nivel: Implementé un monitor de eventos que lee directamente desde `/dev/input/js0`. Programé la combinación de escape `Share + Options` para interceptar las señales del mando de PS4/PS5, forzar el cierre del emulador Mednafen y retornar al menú principal de forma segura.
-Gestión Inteligente de Biblioteca: Desarrollé la lógica de sincronización que detecta y copia únicamente ROMs nuevas `.sfc`/`.smc`. El sistema vincula automáticamente las portadas `.png` por coincidencia de nombre y asigna una imagen predeterminada (`Default.png`) si el juego no cuenta con arte propio.
+Reyes Roque Andrik Uriel
+Interfaz gráfica propietaria
+
+Programó la interfaz desde cero en Python 3 utilizando Pygame. Logró que opere directamente sobre el búfer de fotogramas físico mediante DRM/KMS, permitiendo un alto rendimiento y fluidez de 60 FPS sin necesidad de un entorno de escritorio como X11 o Wayland.
+
+Diseño visual avanzado
+
+Implementó una estética neón con paneles semitransparentes mediante técnicas de Alpha Blending. Además, desarrolló un sistema de renderizado de fuentes con sombreado dinámico para mejorar la legibilidad y un algoritmo de escalado automático de carátulas.
+
+Sincronización USB (Centinela)
+
+Diseñó un algoritmo que detecta memorias USB en tiempo real. Utilizó el comando lsblk y estructuras JSON para identificar dispositivos de almacenamiento dinámicamente, permitiendo reconocer memorias USB sin importar el puerto físico utilizado.
+
+Control de hardware a bajo nivel
+
+Implementó un monitor de eventos que lee directamente desde /dev/input/js0. También programó la combinación Share + Options para interceptar señales del control PS4/PS5, forzar el cierre del emulador Mednafen y regresar al menú principal de manera segura.
+
+Gestión inteligente de biblioteca
+
+Desarrolló la lógica de sincronización encargada de detectar y copiar únicamente ROMs nuevas (.sfc y .smc). El sistema vincula automáticamente las portadas .png por coincidencia de nombre y asigna una imagen predeterminada (Default.png) cuando el juego no cuenta con arte propio.
