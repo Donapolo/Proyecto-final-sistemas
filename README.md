@@ -139,11 +139,8 @@ Asimismo, se incluyen referencias al autor y licencias correspondientes de los r
 <h1>
   Vazquez Apolonio Armando
 </h1>
-Aquí tienes el texto adaptado en primera persona (del singular, "yo"), manteniendo un tono profesional, técnico y fluido, ideal para un informe, portafolio o currículum:
 
 ---
-
-## Mi Contribución al Proyecto
 
 Como parte del desarrollo del proyecto, **participé principalmente en la preparación y configuración del entorno de trabajo** sobre Raspberry Pi OS Lite, así como en la integración y corrección de distintos componentes del sistema.
 
