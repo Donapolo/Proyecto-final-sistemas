@@ -172,19 +172,19 @@ Finalmente, trabajé en la **organización de las carpetas del proyecto**, la es
 Reyes Roque Andrik Uriel
 </h1>
 Reyes Roque Andrik Uriel
-Interfaz gráfica propietaria
+##Interfaz gráfica propietaria
 
 Programó la interfaz desde cero en Python 3 utilizando Pygame. Logró que opere directamente sobre el búfer de fotogramas físico mediante DRM/KMS, permitiendo un alto rendimiento y fluidez de 60 FPS sin necesidad de un entorno de escritorio como X11 o Wayland.
 
-Diseño visual avanzado
+##Diseño visual avanzado
 
 Implementó una estética neón con paneles semitransparentes mediante técnicas de Alpha Blending. Además, desarrolló un sistema de renderizado de fuentes con sombreado dinámico para mejorar la legibilidad y un algoritmo de escalado automático de carátulas.
 
-Sincronización USB (Centinela)
+##Sincronización USB (Centinela)
 
 Diseñó un algoritmo que detecta memorias USB en tiempo real. Utilizó el comando lsblk y estructuras JSON para identificar dispositivos de almacenamiento dinámicamente, permitiendo reconocer memorias USB sin importar el puerto físico utilizado.
 
-Control de hardware a bajo nivel
+##Control de hardware a bajo nivel
 
 Implementó un monitor de eventos que lee directamente desde /dev/input/js0. También programó la combinación Share + Options para interceptar señales del control PS4/PS5, forzar el cierre del emulador Mednafen y regresar al menú principal de manera segura.
 
