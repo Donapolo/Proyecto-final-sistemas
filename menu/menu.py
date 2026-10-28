@@ -305,7 +305,7 @@ def obtener_dispositivo_montado_en_usb():
 
 def intentar_desmontar_usb():
     """
-    Intenta desmontar /mnt/usb para limpiar montajes viejos.
+nano ~/pickaxestation/menu/menu.pynano ~/pickaxestation/menu/menu.pynano ~/pickaxestation/menu/menu.pynano ~/pickaxestation/menu/menu.py    Intenta desmontar /mnt/usb para limpiar montajes viejos.
     Requiere sudoers para umount.
     """
     if not os.path.ismount(RUTA_USB):
@@ -313,7 +313,7 @@ def intentar_desmontar_usb():
 
     try:
         subprocess.run(
-            ["sudo", "-n", "umount", RUTA_USB],
+            ["sudo", "-n", "/usr/local/sbin/pickaxe-usb", "umount", RUTA_USB],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
             timeout=3
@@ -356,7 +356,7 @@ def intentar_montar_usb():
 
     try:
         subprocess.run(
-            ["sudo", "-n", "mount", dispositivo, RUTA_USB],
+            ["sudo", "-n", "/usr/local/sbin/pickaxe-usb", "mount", dispositivo, RUTA_USB],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
             timeout=3
@@ -792,6 +792,7 @@ def lanzar_juego():
     print(f"Lanzando {rom}")
 
     mostrar_pantalla_carga(titulo)
+    fundido_a_negro()
     os.system("clear")
 
     pygame.display.quit()
@@ -880,6 +881,7 @@ def lanzar_juego():
 
     pygame.display.init()
     pantalla = pygame.display.set_mode((W, H), pygame.NOFRAME)
+    fundido_desde_negro()
 
     if pygame.mixer.get_init():
         pygame.mixer.unpause()
@@ -929,6 +931,40 @@ def refrescar_controles(motivo=""):
 
     except Exception as e:
         print(f"Error refrescando controles: {e}")
+
+def fundido_a_negro(duracion=400):
+    global pantalla, W, H
+
+    captura = pantalla.copy()
+    capa = pygame.Surface((W, H))
+    capa.fill((0, 0, 0))
+
+    pasos = 20
+
+    for i in range(pasos + 1):
+        pantalla.blit(captura, (0, 0))
+        capa.set_alpha(int(255 * i / pasos))
+        pantalla.blit(capa, (0, 0))
+        pygame.display.flip()
+        pygame.time.delay(max(1, duracion // pasos))
+
+def fundido_desde_negro(duracion=400):
+    global pantalla, W, H
+
+    captura = pantalla.copy()
+    capa = pygame.Surface((W, H))
+    capa.fill((0, 0, 0))
+
+    pasos = 20
+
+    for i in range(pasos, -1, -1):
+        pantalla.blit(captura, (0, 0))
+        capa.set_alpha(int(255 * i / pasos))
+        pantalla.blit(capa, (0, 0))
+        pygame.display.flip()
+        pygame.time.delay(max(1, duracion // pasos))
+
+
 
 
 def control_conectado():
@@ -986,9 +1022,7 @@ while ejecutando:
 
     dibujar_panel(pantalla, 30, 30, 560, 180)
     dibujar_texto_con_sombra(pantalla, "PROYECTO: CONSOLA RETRO - PICKAXESTATION", f_info, C_NEON, (50, 50))
-    dibujar_texto_con_sombra(pantalla, "MATERIA: FUNDAMENTOS DE SISTEMAS EMBEBIDOS", f_info, C_NEON, (50, 75))
-    dibujar_texto_con_sombra(pantalla, "EQUIPO: BRIGADA 04", f_info, C_NEON, (50, 100))
-    dibujar_texto_con_sombra(pantalla, "REYES ROQUE / VAZQUEZ A. / ALMODOVAR", f_info, C_BLANCO, (50, 150))
+    dibujar_texto_con_sombra(pantalla, "VAZQUEZ APOLONIO ARMANDO", f_info, C_BLANCO, (50, 150))
 
     dibujar_panel(pantalla, W - 510, 30, 480, 130)
     hora = datetime.now().strftime("%I:%M:%S %p")
