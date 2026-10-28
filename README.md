@@ -2,8 +2,6 @@
 
 **Consola retro sobre Raspberry Pi 3 Model B | Raspberry Pi OS Lite | Python, Pygame y Mednafen**
 
-> Documentación contrastada con el archivo `menu.py` actual entregado para esta revisión. El código del menú no se modificó.
-
 ## 1. Descripción general
 
 PickaxeStation es un sistema embebido dedicado a la ejecución de videojuegos retro. Funciona sobre una **Raspberry Pi 3 Model B (Rev. 1.2)** con **Raspberry Pi OS Lite de 64 bits** y una interfaz gráfica propia desarrollada en **Python y Pygame**, sin utilizar un entorno de escritorio ni distribuciones retro preconfiguradas como RetroPie, Batocera o Recalbox.
@@ -424,7 +422,7 @@ El README del trabajo original le atribuye el desarrollo de la interfaz en Pytho
 
 El README del trabajo original describe su participación en el diseño y desarrollo del mecanismo de detección de medios extraíbles, el análisis de unidades mediante `lsblk`, el filtrado de ROMs, la evitación de duplicados y la asociación automática de portadas.
 
-> **Alcance de los créditos:** el documento original atribuye actividades relacionadas con la detección USB tanto a Andrik como a Sergio. Se conservan ambas menciones sin inventar una división más precisa del trabajo. El código, la historia de cambios y las explicaciones personales de los autores son las referencias apropiadas para detallar líneas o funciones concretas.
+> **Alcance de los créditos:** en el documento original atribuye actividades relacionadas con la detección USB tanto a Andrik como a Sergio. Se conservan ambas menciones sin inventar una división más precisa del trabajo. El código, la historia de cambios y las explicaciones personales de los autores son las referencias apropiadas para detallar líneas o funciones concretas.
 
 
 ## 11. Licencia y terceros
